@@ -39,11 +39,20 @@ find_lto(CXX)
 # --------------------------------------------------------------------------------
 set(SOURCES          # All .cpp files in src/
     src/example.cpp
+    src/lacze_do_gnuplota
+    src/Bryla
+    src/Dron
+    src/wirnik
+    src/Macierz3x3.cpp
+    src/Plaszczyzna
+    src/Prostopadloscian
+    src/Scena
+    src/Wektor3D
 )
 set(TESTFILES        # All .cpp files in tests/
     tests/main.cpp
 )
-set(LIBRARY_NAME engine)  # Default name for the library built from src/*.cpp (change if you wish)
+set(LIBRARY_NAME program)  # Default name for the library built from src/*.cpp (change if you wish)
 
 # --------------------------------------------------------------------------------
 #                            Build! (Change as needed)

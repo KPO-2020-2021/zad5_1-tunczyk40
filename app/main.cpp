@@ -3,33 +3,40 @@
 // users, this can be left out.
 #ifdef ENABLE_DOCTEST_IN_LIBRARY
 #define DOCTEST_CONFIG_IMPLEMENT
-#include "doctest.h"
+#include "../tests/doctest/doctest.h"
 #endif
 
 #include <iostream>
+#include <iomanip>
 #include <stdlib.h>
-
+#include <fstream>
+#include <string>
 #include "exampleConfig.h"
 #include "example.h"
+#include "Scena.hh"
+#include "../include/lacze_do_gnuplota.hh"
 
-/*
- * Simple main program that demontrates how access
- * CMake definitions (here the version number) from source code.
- */
-int main() {
-  std::cout << "C++ Boiler Plate v"
-            << PROJECT_VERSION_MAJOR
-            << "."
-            << PROJECT_VERSION_MINOR
-            << "."
-            << PROJECT_VERSION_PATCH
-            << "."
-            << PROJECT_VERSION_TWEAK
-            << std::endl;
-  std::system("cat ../LICENSE");
 
-  // Bring in the dummy class from the example source,
-  // just to show that it is accessible from main.cpp.
-  Dummy d = Dummy();
-  return d.doSomething() ? 0 : -1;
+
+int main()
+{
+       std::cout << "Project Rotation 2D based on C++ Boiler Plate v"
+                 << PROJECT_VERSION_MAJOR /*duże zmiany, najczęściej brak kompatybilności wstecz */
+                 << "."
+                 << PROJECT_VERSION_MINOR /* istotne zmiany */
+                 << "."
+                 << PROJECT_VERSION_PATCH /* naprawianie bugów */
+                 << "."
+                 << PROJECT_VERSION_TWEAK /* zmiany estetyczne itd. */
+                 << std::endl;
+         Wektor3D wek;
+   Scena s;
+   wek.informacje();
+       while (s.interfejs())
+       {
+            s.rysuj();
+            wek.informacje();
+       }
+       Dummy d = Dummy();
+       return d.doSomething() ? 0 : -1;
 }
